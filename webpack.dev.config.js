@@ -2,7 +2,7 @@ const { resolve } = require('path')
 const CopyWebpackPlugin=require('copy-webpack-plugin')
 const MiniCSSExtractPlugin=require('mini-css-extract-plugin')
 const config = {
-  entry: './client/main.jsx',
+  entry: ['@babel/polyfill','./client/main.jsx'],
   mode: 'development',
   output: {
     filename: 'js/[name].bundle.js',

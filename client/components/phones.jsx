@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updateCode, phoneToReduxViaSocket } from "../redux/reducers/phone";
+import { updateCode, receivePhone } from "../redux/reducers/phone";
 import Error from "./utils/error";
 import Select from "./utils/select";
 import InputPhone from "./utils/input";
@@ -49,10 +49,14 @@ const Phones = () => {
     [setNumber]
   );
   const handleSubmit = useCallback(
+
     (e) => {
+      console.log("before", number);
       e.preventDefault();
+      console.log("smth");
       if (validate) {
-        dispatch(phoneToReduxViaSocket(number));
+        console.log('before', number)
+        dispatch(receivePhone(number));
         const newNumber = "";
         setNumber(newNumber);
       }

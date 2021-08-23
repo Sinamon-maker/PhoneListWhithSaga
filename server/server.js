@@ -21,7 +21,7 @@ app.get('/', async (req, res) => {
 app.post('/api/v1/phone', async (req, res) => {
   let newPhone = new Phone({ phone: req.body.phone })
   newPhone = await newPhone.save()
-
+  console.log('newPhone', newPhone)
   res.send(newPhone)
 })
 
